@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
     <title>$Title$</title>
@@ -57,6 +56,7 @@
       <option value ="25">6</option>
       <option value ="30">7</option>
   </select>
+    &nbsp&nbsp&nbsp
       弱点特效:<select id="add_crit2">
       <option value ="0">无</option>
       <option value ="15">1</option>

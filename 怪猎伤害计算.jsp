@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>$Title$</title>
+    <title>怪猎伤害计算</title>
   </head>
   <body>
 

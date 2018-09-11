@@ -70,6 +70,7 @@
       <option value ="25">6</option>
       <option value ="30">7</option>
   </select>
+      &nbsp&nbsp&nbsp
       弱点特效:<select id="add_crit2">
       <option value ="0">无</option>
       <option value ="15">1</option>
@@ -95,7 +96,8 @@
     <br><br>
       <button onclick="damage()">计算</button>
   </div>
-  <br><br>仅适用物理部分<br>攻击期望：<p id="result">0</p>
+  <br><br>仅适用物理部分<br>
+  攻击期望：<p>0</p>
 
   <script >
       function damage() {
@@ -135,7 +137,7 @@
               var damage = 0;
               damage = ( Number(all_atk * all_crit * crit_rate / 10000) + Number(all_atk * (100-all_crit) / 100)) * sharpness;
               damage = Math.round(damage*100)/100
-  
+
               var mydamage = document.querySelector('p');
               mydamage.textContent =  damage;
           }

@@ -6,8 +6,6 @@
 <body>
 SSR率:<input type="text" id="ssr" >%
 &nbsp&nbsp&nbsp
-SR率:<input type="text" id="sr" >%
-&nbsp&nbsp&nbsp
 <br>
 <button onclick="gacha_once()">抽卡</button>
 <button onclick="gacha_ten()">十连</button>
@@ -21,7 +19,7 @@ SR率:<input type="text" id="sr" >%
         var sum_card = document.getElementById("card").value
 */
         var ssr_rate = document.getElementById("ssr").value
-        var sr_rate = document.getElementById("sr").value
+        var sr_rate = 0
         var sum_rate = Number(ssr_rate) + Number(sr_rate)
         return [ssr_rate,sr_rate,sum_rate]
     }

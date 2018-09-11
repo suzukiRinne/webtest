@@ -1,6 +1,7 @@
+
 <html>
   <head>
-    <title>怪猎伤害计算</title>
+    <title>$Title$</title>
   </head>
   <body>
 
@@ -28,6 +29,19 @@
     &nbsp&nbsp&nbsp
     武器会心:<input type="text" id="initial_crit" >%
     <br>技能<br>
+      斩味:<select id="sharpness">
+      <option value ="1">无（默认绿斩）</option>
+      <option value ="1.32">白</option>
+      <option value ="1.2">蓝</option>
+      <option value ="1.05">绿</option>
+      <option value ="1">黄</option>
+      <option value ="0.75">橙</option>
+      <option value ="0.5">红</option>
+  </select>&nbsp&nbsp&nbsp
+      无击:<select id="non_elemental">
+      <option value ="100">无</option>
+      <option value ="110">有</option>
+  </select><br>
       攻击:<select id="add_atk">
       <option value ="0">无</option>
       <option value ="3">1</option>
@@ -56,7 +70,6 @@
       <option value ="25">6</option>
       <option value ="30">7</option>
   </select>
-    &nbsp&nbsp&nbsp
       弱点特效:<select id="add_crit2">
       <option value ="0">无</option>
       <option value ="15">1</option>
@@ -90,6 +103,9 @@
           var initial_atk = document.getElementById("initial_atk").value;
           var initial_crit = document.getElementById("initial_crit").value;
 
+          var sharpness = document.getElementById("sharpness").value;
+          var non_elemental = document.getElementById("non_elemental").value;
+
           var add_crit = document.getElementById("add_crit").value;
           var add_crit2 = document.getElementById("add_crit2").value;
           var add_crit3 = document.getElementById("add_crit3").value;
@@ -103,7 +119,7 @@
               alert("请选择武器");
           }
           else {
-              var all_atk = Number(initial_atk) / Number(rate) + Number(add_atk) + Number(add_atk2);
+              var all_atk = Number(initial_atk) * Number(non_elemental)/100 / Number(rate) + Number(add_atk) + Number(add_atk2);
               var all_crit = Number(initial_crit) + Number(add_crit) + Number(add_crit2) + Number(add_crit3);
               if(add_atk >= 12) {
                   all_crit = all_crit + 5;
@@ -117,16 +133,11 @@
               }
 
               var damage = 0;
-              /*alert('all_crit'+all_crit +'and' + 'crit_rate'+crit_rate);*/
-              damage = Number(all_atk * all_crit * crit_rate / 10000) + Number(all_atk * (100-all_crit) / 100);
-
-              /*
-                        alert(all_atk);
-              */
-
-
-              var myHeading = document.querySelector('p');
-              myHeading.textContent =  damage;
+              damage = ( Number(all_atk * all_crit * crit_rate / 10000) + Number(all_atk * (100-all_crit) / 100)) * sharpness;
+              damage = Math.round(damage*100)/100
+  
+              var mydamage = document.querySelector('p');
+              mydamage.textContent =  damage;
           }
 
       }

@@ -7,9 +7,9 @@
 SSR率:<input type="text" id="ssr" >%
 &nbsp&nbsp&nbsp
 <br>
-<%--
+
 <button onclick="gacha_once()">抽卡</button>
---%>
+
 <button onclick="gacha_ten()">十连</button>
 
 <p></p>
